@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "React World",
   "scripts": {
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html",
     "test": "jest"
   },
   "repository": {
