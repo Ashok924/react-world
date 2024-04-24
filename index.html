@@ -8,15 +8,24 @@
   </head>
   <body>
     <div id="root">React World Loading ...</div>
-    <script
+
+    <!-- Bundlers: parcel, vite, webpack : EOD: these are packages and manged by npm-->
+    <!-- in Create React App (Webpack,Babel is bundler) -->
+    <!-- NPM is a pakage manager and it is not NODE PACKAGE MANAGER -->
+    <!-- Automaticall upgrade if we have Carret ^ for minor vertions (2.8.2 -> 2.8.3) / Tild ~ for major vertions (2.8.2 -> 3.1.1) infornt of Vertion Number-->
+    <!-- NPX is execute parcel with NPM -->
+
+    <!-- <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.production.min.js"
     ></script>
     <script
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-    ></script>
+    ></script> -->
+
     <script>
+
       /* Javascript Code */
       // const headElement = document.createElement("h1");
       // headElement.innerHTML = "Welcome To React World";
@@ -33,6 +42,7 @@
       // const root = ReactDOM.createRoot(document.getElementById("root"));
       // root.render(headElement);
     </script>
-    <script src="App.js"></script>
+
+    <script type="module" src="App.js"></script>
   </body>
 </html>

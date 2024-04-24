@@ -1,0 +1,29 @@
+{
+  "name": "react-world",
+  "version": "1.0.0",
+  "description": "React World",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Ashok924/react-world.git"
+  },
+  "author": "Ashok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashok924/react-world/issues"
+  },
+  "homepage": "https://github.com/Ashok924/react-world#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}
