@@ -70,3 +70,10 @@
     position: relative;
     /* bottom: 0; */
 }
+
+.shimmer-card {
+    width: 200px;
+    height: 300px;
+    border: 1px solid rgb(82, 80, 80);
+    padding: 10px;
+}

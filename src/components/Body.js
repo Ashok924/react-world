@@ -1,29 +1,36 @@
 import { useEffect, useState } from "react";
 import * as Resturent from "./ResturentCard";
-import { resturentList } from "../../constants";
+import { fetchResturentsData } from "../utils/api"
+import { CardShimmer } from "./ShimmerUi"
 
-const searchResturent = (serachText, resturents) => {
+const searchResturent = (serachText, fliteredResturents) => {
   if(serachText){
-    const filteredResturents = resturentList.filter((resturent) =>
+    const filteredResturents = fliteredResturents.filter((resturent) =>
       resturent.name.includes(serachText)
     );
     return filteredResturents;
   }else{
-    return resturentList
+    return fliteredResturents
   }
 };
 
 const Body = () => {
-  const [resturents, setResturents] = useState(resturentList);
+  const [resturents, setResturents] = useState([]);
+  const [fliteredResturents, setFilterdResturent] = useState([]);
   const [serachText, setSearchText] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // useEffect(()=>{
-  //   if(!serachText){
-  //     setResturents(resturentList)
-  //   }
-  // },[serachText])
+  useEffect(()=>{
+    getResturentsData()
+  },[])
 
-  console.log(serachText)
+  const getResturentsData = async () => {
+    setLoading(true)
+    let resturentList = await fetchResturentsData();
+    setLoading(false)
+    setResturents(resturentList)
+    setFilterdResturent(resturentList)
+  }
 
   return (
     <div className="body">
@@ -34,15 +41,13 @@ const Body = () => {
           placeholder="Search Here"
           value={serachText}
           onChange={(e) => {
-            console.log(e.target.value)
             setSearchText(e.target.value)
           }}
         ></input>
         <button
           className="search-button"
           onClick={()=>{
-            console.log(serachText)
-              const data = searchResturent(serachText, resturents)
+              const data = searchResturent(serachText, fliteredResturents)
               setResturents(data)
             }
           }
@@ -51,7 +56,15 @@ const Body = () => {
         </button>
       </div>
       <div className="resturent-list">
-        <Resturent.ResturentCard resturentList={resturents} />
+        {
+          loading ? 
+          <CardShimmer />
+          :
+          resturents.length > 0 ?
+          <Resturent.ResturentCard resturentList={resturents} />
+          :
+          <div>No Resturents Found</div>
+        }
       </div>
     </div>
   );
