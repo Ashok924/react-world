@@ -10,5 +10,5 @@ export const CardShimmer = () => {
 }
 
 export const ImageShimmer = () => {
-    return <Breathing width={200} height={180} />
+    return <Shimmer width={200} height={180} />
 }

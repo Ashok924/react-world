@@ -6,7 +6,7 @@ import { CardShimmer } from "./ShimmerUi"
 const searchResturent = (serachText, fliteredResturents) => {
   if(serachText){
     const filteredResturents = fliteredResturents.filter((resturent) =>
-      resturent.name.includes(serachText)
+      resturent.name.toLowerCase().includes(serachText.toLowerCase())
     );
     return filteredResturents;
   }else{

@@ -3,6 +3,12 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import About from "./components/About";
+import Error from "./components/Error";
+import Contact from "./components/Contact";
+import Cart from "./components/Cart";
+import ResturentDetails from "./components/ResturentDetails";
 
 /* Old Way to create React Elements */
 // const headElement1 = React.createElement("h2", { id: "title1", key: "1" }, "Welcome To");
@@ -68,11 +74,56 @@ const AppLayout = () => {
   return(
     <React.Fragment>
       <Header />
-      <Body />
+      {/* <Body /> */}
+      <Outlet/>
       <Footer />
     </React.Fragment>
   )
 }
 
+const appRouter =  createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout/>,
+    errorElement: <Error/>,
+    children:[
+      {
+        path: "/",
+        element: <Body/>,
+      },
+      {
+        path: "/about",
+        element: <About/>,
+      },
+      {
+        path: "/contact",
+        element: <Contact/>
+      },
+      {
+        path: "cart",
+        element: <Cart />
+      },
+      {
+        path: "resturent/:id",
+        element: <ResturentDetails />
+      }
+    ]
+  },
+  // {
+  //   path: "/about",
+  //   element: <About/>,
+  // },
+  // {
+  //   path: "/contact",
+  //   element: <Contact/>
+  // },
+  // {
+  //   path: "cart",
+  //   element: <Cart />
+  // }
+])
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);

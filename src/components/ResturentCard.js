@@ -1,4 +1,5 @@
 import { ImageShimmer } from "./ShimmerUi";
+import { Link } from "react-router-dom"
 export const ResturentCard = ({resturentList}) => {
   return (
     <>
@@ -7,10 +8,12 @@ export const ResturentCard = ({resturentList}) => {
           resturentList.map((resturent,index)=>{
             return (
               <div className="card" key={index}>
-                <img alt="image" src={resturent.image} fallback={<ImageShimmer/>}></img>
-                <h3>{resturent.name}</h3>
-                <h3>{resturent.cusines.join(",")}</h3>
-                <h4>{resturent.rating}</h4>
+                <Link to={"/resturent/"+index}>
+                  <img alt="image" src={resturent.image} fallback={<ImageShimmer/>}></img>
+                  <h3>{resturent.name}</h3>
+                  <h3>{resturent.cusines.join(",")}</h3>
+                  <h4>{resturent.rating}</h4>
+                </Link>
               </div>
             )
           })

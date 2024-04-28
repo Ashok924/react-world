@@ -8,3 +8,12 @@ export const fetchResturentsData = () => {
     })
     return data;
 }
+
+export const fetchResturentDetails = (id) => {
+    const data = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(resturentList[id])
+        },2000)
+    })
+    return data;
+}
