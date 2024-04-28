@@ -9,3 +9,64 @@
 #title2 {
     color: rgb(22, 39, 46)
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.nav-items > ul{
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-items > ul > li {
+    padding: 5px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.body {
+    margin: 10px;
+    background-color: white;
+}
+
+.footer {
+    margin: 10px;
+    background-color: gray;
+    /* justify-content: center; */
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    gap: 10px
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    padding: 10px;
+    /* margin: 10px; */
+}
+
+.card > img {
+    width: 200px;
+    height: 180px;
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 5px
+} 
+
+.footer {
+    position: relative;
+    /* bottom: 0; */
+}
